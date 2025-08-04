@@ -1,4 +1,4 @@
-# Data Structures Library 
+# Data Structure Library 
 
 # Overview:
 A Python library implementing common data structures (Stack, Queue, Linked List, Hash Table, Binary Tree, Graph) with emphasis on clear, well-documented, and type-safe code. 
