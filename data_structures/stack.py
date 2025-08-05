@@ -3,8 +3,6 @@ from typing import Generic, List, Optional, TypeVar
 T = TypeVar('T')
 
 class Stack(Generic[T]): 
-    _items: List[T] # Declare attribute here
-    
     """
     Stack[T]: A type-annotated, generic stack implementation with detailed documentation. 
 
@@ -17,7 +15,7 @@ class Stack(Generic[T]):
     Design decisions:
     - **Type Safety:** Uses Python's generics and type hints so the stack can store any consistent type, supporting
     static checkers and IDE tooling.
-    - **Graceful underflow:** Methods return `None` instead of raising for empty stack access, favoring
+    - **Graceful Underflow:** Methods return `None` instead of raising for empty stack access, favoring
     ergonomic error-handling over exceptions for simple code integration. 
     - **Performance:** Adding (push) or removing (pop) an item at the end of a Python list takes O(1) amortized time. 
 
@@ -33,7 +31,7 @@ class Stack(Generic[T]):
         99
         >>> stack.pop()
         42
-        >>> stack.pop() #edge case: popping from empty stack 
+        >>> stack.pop()     # edge case: popping from empty stack 
         None
         >>> stack.is_empty()
         True 
@@ -55,70 +53,72 @@ class Stack(Generic[T]):
 
     Space Complexity: 
     - O(n), where n is the number of items 
-"""
-
-def __init__(self) -> None:
     """
-    Initializes an empty stack.
-    """
-    self._items = [] 
+    
+    _items: List[T]     # Type annotation for the instance attribute
 
-def push(self, item: T) -> None:
-    """
-    Pushes an item onto the top of the stack.
+    def __init__(self) -> None:
+        """
+        Initializes an empty stack.
+        """
+        self._items = [] 
 
-    Parameters:
-        item (T): The item to add. 
+    def push(self, item: T) -> None:
+        """
+        Pushes an item onto the top of the stack.
 
-    Returns:
-        None
+        Parameters:
+            item (T): The item to add. 
 
-    Example:
-        stack.push('Paris')
-    """
-    self._items.append(item)
+        Returns:
+            None
 
-def pop(self) -> Optional[T]:
-    """
-    Removes and returns the top item. If the stack is empty, returns None. 
+        Example:
+            stack.push('Paris')
+        """
+        self._items.append(item)
 
-    Returns: 
-        Optional[T]: The item that was on top, or None if empty. 
+    def pop(self) -> Optional[T]:
+        """
+        Removes and returns the top item. If the stack is empty, returns None. 
 
-    Example: 
-        item = stack.pop()
-        if item is None: 
-            print("Stack was empty")
-    """
-    if not self._items:
-        return None
-    return self._items.pop()
+        Returns: 
+            Optional[T]: The item that was on top, or None if empty. 
 
-def peek(self) -> Optional[T]:
-    """
-    Returns (but does not remove) the top item, or None if the stack is empty.
+        Example: 
+            item = stack.pop()
+            if item is None: 
+                print("Stack was empty")
+        """
+        if not self._items:
+            return None
+        return self._items.pop()
 
-    Returns:
-        Optional[T]: The top item, or None if stack is empty.
+    def peek(self) -> Optional[T]:
+        """
+        Returns (but does not remove) the top item, or None if the stack is empty.
 
-    Example:
-        top = stack.peek()
-    """
-    if not self._items:
-        return None
-    return self._items[-1]
+        Returns:
+            Optional[T]: The top item, or None if stack is empty.
 
-def is_empty(self) -> bool:
-    """
-    Checks if the stack is empty. 
+        Example:
+            top = stack.peek()
+        """
+        if not self._items:
+            return None
+        return self._items[-1]
 
-    Returns: 
-        bool: True if the stack is empty, False otherwise. 
+    def is_empty(self) -> bool:
+        """
+        Checks if the stack is empty. 
 
-    Example: 
-        if stack.is_empty():
-            print("No items left:")
-    """
-    return not self._items 
+        Returns: 
+            bool: True if the stack is empty, False otherwise. 
+
+        Example: 
+            if stack.is_empty():
+                print("No items left:")
+        """
+        return not self._items 
 
   
