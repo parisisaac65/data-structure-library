@@ -86,9 +86,9 @@ class Stack(Generic[T]):
             Optional[T]: The item that was on top, or None if empty. 
 
         Example: 
-            item = stack.pop()
-            if item is None: 
-                print("Stack was empty")
+            >>> item = stack.pop()
+            >>> if item is None: 
+            ...     print("Stack was empty")
         """
         if not self._items:
             return None

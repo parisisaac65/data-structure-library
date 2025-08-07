@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hash Table &mdash; python-datastructures 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Stack" href="stack.html" />
+    <link rel="prev" title="python-datastructures documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            python-datastructures
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data Structures</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Hash Table</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hash_table.HashMap"><code class="docutils literal notranslate"><span class="pre">HashMap</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hash_table.HashMap.get"><code class="docutils literal notranslate"><span class="pre">HashMap.get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hash_table.HashMap.put"><code class="docutils literal notranslate"><span class="pre">HashMap.put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hash_table.HashMap.remove"><code class="docutils literal notranslate"><span class="pre">HashMap.remove()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stack.html">Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queue.html">Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linked_list.html">Linked List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binary_search_tree.html">Binary Search Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heap.html">Heap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-datastructures</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Hash Table</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/hash_table.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-hash_table">
+<span id="hash-table"></span><h1>Hash Table<a class="headerlink" href="#module-hash_table" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="hash_table.HashMap">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">hash_table.</span></span><span class="sig-name descname"><span class="pre">HashMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hash_table.HashMap" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">K</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">V</span></code>]</p>
+<p>Hashmap[K, V]: A type-annotated, generic hash map implementation using separate chaining for collisions.</p>
+<p>This hash map is an associative data structure that maps unique keys to values, allowing efficient
+insertion, deletion, and lookup operations.
+It uses a hash function to compute an index into buckets where key-value pairs are stored.
+Collisions are handled via separate chaining (a list of entries in each bucket).
+Use this hash map when you need quick average-case access to data via unique keys, such as caching,
+indexing, or implementing sets and dictionaries.</p>
+<dl>
+<dt>Usage:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hashmap</span> <span class="o">=</span> <span class="n">HashMap</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashmap</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashmap</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashmap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>
+<span class="go">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashmap</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hashmap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;two&quot;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Design Decisions:
+- Uses a fixed-size list of buckets (default size 100).
+- Buckets use Python lists to store key-value pairs (chaining).
+- Simple built-in hash() function combined with modulo for indexing.
+- Methods return meaningful values for existence checks.
+- Does not resize automatically (can be extended later).</p>
+<p>Time Complexity:
+- put, get, remove: O(1) average, O(n) worst case (all keys collide in same bucket).</p>
+<p>Space Complexity:
+- O(n), where n is the number of entries.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="hash_table.HashMap.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hash_table.HashMap.get" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the value associated with the key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>K</em>) – The key to look up.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The value if found, else None.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[V]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hash_table.HashMap.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hash_table.HashMap.put" title="Link to this definition"></a></dt>
+<dd><p>Inserts or updates the value associated with the key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>K</em>) – The key to insert/update.</p></li>
+<li><p><strong>value</strong> (<em>V</em>) – The value to associate with the key.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="hash_table.HashMap.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hash_table.HashMap.remove" title="Link to this definition"></a></dt>
+<dd><p>Removes the key-value pair with the specified key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>key</strong> (<em>K</em>) – The key to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if removal was successful, False if key not found.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="python-datastructures documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stack.html" class="btn btn-neutral float-right" title="Stack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Paris Isaac.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
