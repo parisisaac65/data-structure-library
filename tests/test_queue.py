@@ -12,7 +12,7 @@ def test_enqueue_dequeue():
 
 def test_dequeue_empty():
     q = queue.Queue()
-    assert q.dequeue is None
+    assert q.dequeue() is None
 
 def test_peek():
     q = queue.Queue()
