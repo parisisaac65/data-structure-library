@@ -14,13 +14,6 @@ class Stack(Generic[T]):
     Use this stack when you need to manage data with a strict LIFO order, such as parsing, undo/redo, and/or algorithm state. 
 
     
-    **Design Decisions:**
-
-    - **Type Safety:** Uses Python's generics and type hints so the stack can store any consistent type, supporting static checkers and IDE tooling.
-    - **Graceful Underflow:** Methods return `None` instead of raising for empty stack access, favoring ergonomic error-handling over exceptions for simple code integration. 
-    - **Performance:** Adding (`push`) or removing (`pop`) an item at the end of a Python list takes O(1) amortized time. 
-
-    
     **Usage:**
 
     .. code-block:: python 
@@ -40,7 +33,14 @@ class Stack(Generic[T]):
 
         print(stack.is_empty())         # True 
 
-        
+
+    **Design Decisions:**
+
+    - **Type Safety:** Uses Python's generics and type hints so the stack can store any consistent type, supporting static checkers and IDE tooling.
+    - **Graceful Underflow:** Methods return `None` instead of raising for empty stack access, favoring ergonomic error-handling over exceptions for simple code integration. 
+    - **Performance:** Adding (`push`) or removing (`pop`) an item at the end of a Python list takes O(1) amortized time. 
+
+    
     **Edge Cases:**
 
     - Calling `pop()` or `peek()` on an empty stack returns `None`.
