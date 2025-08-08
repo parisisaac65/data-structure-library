@@ -85,11 +85,9 @@ class Graph(Generic[T]):
         """Returns a set of undirected edges as (u, v) tuples (u <= v)."""
         edge_set = set()
         for u in self._adjacency: 
-            for v in self._adjacency: 
-                if u <= v: 
-                    edge_set.add((u, v))
-                else: 
-                    edge_set.add((v, u))
+            for v in self._adjacency[u]: 
+                edge = (u, v) if u <= v else (v, u)
+                edge_set.add(edge)
         return edge_set
     
     def __repr__(self) -> str: 
