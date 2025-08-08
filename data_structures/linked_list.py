@@ -25,42 +25,54 @@ class LinkedList(Generic[T]):
     LinkedList[T]: A type-annotated, generic singly linked list implementation with detailed documentation. 
 
     This linked list provides operations to add, remove, and iterate over elements. 
+    
     It maintains a head pointer to the first node in the list. 
 
-    Usage: 
-        >>> linked_list = LinkedList[int]()
-        >>> linked_list.is_empty()
-        True
-        >>> linked_list.insert_at_end(10)
-        >>> linked_list.insert_at_beginning(5)
-        >>> list(linked_list)
-        [5, 10]
-        >>> linked_list.remove(5)
-        True
-        >>> list(linked_list)
-        [10]
+    **Usage:**
 
-    Design Decisions: 
+    .. code-block:: python
+
+        linked_list = LinkedList[int]()
+        print(linked_list.is_empty())           # True
+        
+        linked_list.insert_at_end(10)
+        linked_list.insert_at_beginning(5)
+
+        print(list(linked_list))                # [5, 10]
+
+        print(linked_list.remove(5))            # True 
+        
+        print(list(linked_list))                # [10]
+
+    **Design Decisions:**
+
     - Generic and type-annoated for type safety and static analysis. 
     - Single linked list (each node points only to the next).
     - Methods return meaningful values for success/failure states.
     - Iteration support to allow convenient list traversal. 
 
-    When to use: 
+    
+    **When to Use a Linked List:**
+
     - For frequent insertions/deletions at the list start or middle without resizing overhead.
     - When you don't need fast random access (prefer Python lists for that).
     - For memory-flexible node allocation, trading higher per-node memory cost.
     - For double-ended queues, consider `collections.deque` instead.
 
-    Time Complexity: 
+    
+    **Time Complexity:**
+
     - insert_at_beginning: O(1)
     - insert_at_end: O(n)
     - remove: O(n)
     - is_empty: O(1)
     - iteration (__iter__): O(n)
 
-    Space Complexity: 
+    
+    **Space Complexity:**
+
     - O(n), where n is the number of nodes
+
     """
 
     def __init__(self) -> None: 
@@ -75,10 +87,6 @@ class LinkedList(Generic[T]):
 
         Returns: 
             bool: True if the list is empty, False otherwise. 
-
-        Example: 
-            if linked_list.is_empty():
-                print("List is empty")
         """
         return self.head is None 
     
@@ -88,9 +96,6 @@ class LinkedList(Generic[T]):
 
         Parameters: 
             data (T): The data to insert. 
-
-        Example: 
-            linked_list.insert_at_beginning(42)
         """
         new_node = Node(data)
         new_node.next = self.head
@@ -102,9 +107,6 @@ class LinkedList(Generic[T]):
 
         Parameters: 
             data (T): The data to insert. 
-
-        Example: 
-            linked_list.insert_at_end(99)
         """
         new_node = Node(data)
         if self.head is None: 
@@ -125,13 +127,6 @@ class LinkedList(Generic[T]):
 
         Returns: 
             bool: True if a node was removed, False if no matching node was found.
-
-        Example: 
-            removed = linked_list.remove(42)
-            if removed:
-                print("Node removed")
-            else: 
-                print("Node not found")
         """
         current = self.head
         previous = None 
@@ -155,10 +150,6 @@ class LinkedList(Generic[T]):
 
         Yields: 
             Iterator[T]: The data of each node in order. 
-
-        Example: 
-            for value in linked_list:
-                print(value)
         """
         current = self.head
         while current: 
@@ -171,10 +162,6 @@ class LinkedList(Generic[T]):
 
         Returns:
             str: String showing nodes in order, separated by arrows. 
-
-        Example: 
-            print(linked_list)
-            # Output: LinkedList(5 -> 10 -> 15)
         """
         values = list(self)
         return f"LinkedList({' -> '.join(map(str, values))})"
