@@ -1,7 +1,7 @@
 Queue
 =====
 
-.. automodule:: queue
+.. automodule:: queue_ds
     :members:
     :undoc-members:
     :show-inheritance:

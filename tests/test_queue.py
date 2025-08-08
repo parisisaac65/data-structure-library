@@ -1,8 +1,8 @@
 import pytest
-from data_structures import queue 
+from data_structures import queue_ds 
 
 def test_enqueue_dequeue():
-    q = queue.Queue()
+    q = queue_ds.Queue()
     q.enqueue(1)
     q.enqueue(2)
 
@@ -11,18 +11,18 @@ def test_enqueue_dequeue():
     assert q.dequeue() is None      
 
 def test_dequeue_empty():
-    q = queue.Queue()
+    q = queue_ds.Queue()
     assert q.dequeue() is None
 
 def test_peek():
-    q = queue.Queue()
+    q = queue_ds.Queue()
     assert q.peek() is None
 
     q.enqueue(99)
     assert q.peek() == 99 
 
 def test_mixed_operations():
-    q = queue.Queue()
+    q = queue_ds.Queue()
     q.enqueue("a")
     q.enqueue("b")
     assert q.peek() == "a"
