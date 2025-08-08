@@ -70,14 +70,14 @@ def test_remove_root_edge_cases():
     assert list(bst.in_order()) == [5]
 
 def test_pre_order_traversal():
-    bst = BinarySearchTree[int()]
+    bst = BinarySearchTree[int]()
     bst.insert(10)
     bst.insert(5)
     bst.insert(15)
     assert list(bst.pre_order()) == [10, 5, 15]
 
 def test_post_order_traversal():
-    bst = BinarySearchTree[int()]
+    bst = BinarySearchTree[int]()
     bst.insert(10)
     bst.insert(5)
     bst.insert(15)
