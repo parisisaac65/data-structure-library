@@ -22,7 +22,7 @@ def test_peek():
     assert q.peek() == 99 
 
 def test_mixed_operations():
-    q = queue.Queue
+    q = queue.Queue()
     q.enqueue("a")
     q.enqueue("b")
     assert q.peek() == "a"
