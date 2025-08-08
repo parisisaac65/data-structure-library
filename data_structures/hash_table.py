@@ -9,33 +9,40 @@ class HashMap(Generic[K, V]):
 
     This hash map is an associative data structure that maps unique keys to values, allowing efficient
     insertion, deletion, and lookup operations. 
+
     It uses a hash function to compute an index into buckets where key-value pairs are stored. 
     Collisions are handled via separate chaining (a list of entries in each bucket).
+
     Use this hash map when you need quick average-case access to data via unique keys, such as caching, 
     indexing, or implementing sets and dictionaries. 
 
-    Usage: 
-        >>> hashmap = HashMap[str, int]()
-        >>> hashmap.put("one", 1)
-        >>> hashmap.put("two", 2)
-        >>> hashmap.get("one")
-        1
-        >>> hashmap.remove("two")
-        True
-        >>> hashmap.get("two") is None
-        True 
+    **Usage:**
 
-    Design Decisions: 
+    .. code-block:: python
+
+        hashmap = HashMap[str, int]()
+        hashmap.put("one", 1)
+        hashmap.put("two", 2)
+
+        print(hashmap.get("one"))               # 1 
+        print(hashmap.remove("two"))            # True 
+        print(hashmap.get("two")) is None       # True
+    
+
+    **Design Decisions:**
+
     - Uses a fixed-size list of buckets (default size 100).
     - Buckets use Python lists to store key-value pairs (chaining).
     - Simple built-in hash() function combined with modulo for indexing. 
     - Methods return meaningful values for existence checks. 
     - Does not resize automatically (can be extended later).
 
-    Time Complexity: 
+    **Time Complexity**: 
+
     - put, get, remove: O(1) average, O(n) worst case (all keys collide in same bucket). 
     
-    Space Complexity: 
+    **Space Complexity**: 
+
     - O(n), where n is the number of entries. 
     
     """
