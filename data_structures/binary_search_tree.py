@@ -20,35 +20,44 @@ class BinarySearchTree(Generic[T]):
     """
     BinarySearchTree[T]: A type-annotated, generic binary search tree implementation. 
 
-    This Binary Search Tree (BST) maintains the property that for any node, all values in the left
-    subtree are less than the node's values and all values in the right subtree are greater. 
+    This Binary Search Tree (BST) maintains the property that for any node, all values in the left subtree are less than the node's values and all values in the right subtree are greater. 
 
-    Usage: 
-        >>> bst = BinarySearchTree[int]()
-        >>> bst.insert(50)
-        >>> bst.insert(30)
-        >>> bst.insert(70)
-        >>> 50 in bst
-        True
-        >>> list(bst.in_order())
-        [30, 50, 70]
-        >>> bst.remove(30)
-        True
-        >>> list(bst.in_order())
-        [50, 70]
+    **Usage:**
 
-    Design Decisions: 
+    .. code-block:: python
+
+        bst = BinarySearchTree[int]()
+        bst.insert(50)
+        bst.insert(30)
+        bst.insert(70)
+
+        print(50 in bst)                # True
+
+        print(list(bst.in_order()))     # [30, 50, 70]
+    
+        print(bst.remove(30))           # True
+        
+        print(list(bst.in_order()))     # [50, 70]
+
+        
+    **Design Decisions:**
+
     - Generic and type-annotated for type safety and static analysis. 
     - Supports insert, search, remove, and traversal operations. 
     - Iteration methods for in-order, pre-order, and post-order traversal. 
     - Raises no exceptions for removing/searching missing values; returns bool or None.
 
-    Time Complexity (average): 
+    
+    **Time Complexity (average):**
+
     - insert, search, remove: O(log n)
     - traversal: O(n)
 
-    Space Complexity: 
+    
+    **Space Complexity:**
+    
     - O(n), where n is the number of nodes 
+
     """
 
     def __init__(self) -> None: 
