@@ -6,35 +6,42 @@ class Graph(Generic[T]):
     """
     Graph[T]: A type-annotated, generic graph implementation using an adjacency list. 
 
-    This is an undirected graph, meaning edges connect nodes in both directions(if A is connected to B,
-    then B is connected to A).
+    This is an undirected graph, meaning edges connect nodes in both directions(if A is connected to B, then B is connected to A).
+
     Nodes can be of any type (e.g., integers, strings, tuples), as long as they can be used as dictionary keys.
     Edges are unweighted by default, but the structure is easily extensible to support weights. 
 
-    Usage: 
-        >>> g = Graph[int]()
-        >>> g.add_node(1)
-        >>> g.add_edge(1, 2)
-        >>> g.add_edge(2, 3)
-        >>> 2 in g 
-        True
-        >>> g.neighbors(2)
-        {1, 3}
-        >>> g.remove_edge(1, 2)
-        >>> g.remove_node(3)
+    **Usage:**
 
-    Design Decisions: 
+    .. code-block:: python
+
+        g = Graph[int]()
+        g.add_node(1)
+        g.add_edge(1, 2)
+        g.add_edge(2, 3)
+
+        print(2 in g)               # True
+        print(g.neighbors(2))       # {1, 3}
+
+        g.remove_edge(1, 2)
+        g.remove_node(3)
+
+
+    **Design Decisions:**
     - Uses an adjacency list for efficient storage and traversal. 
     - Generic and type-annotated for type safety and static analysis.
     - Undirected by default, but can be adapted for directed graphs.
     - Minimally opinionated, but can be extended to add weights, directions, etc. 
 
-    Time Complexity: 
+    **Time Complexity:**
+
     - add_node, add_edge, remove_node, remove_edge: O(1) average
     - neighbors: O(1) average
 
-    Space Complexity: 
+    **Space Complexity:**
+
     - O(V + E), where V is number of nodes and E is number of edges
+
     """
 
     def __init__(self) -> None:
@@ -93,5 +100,3 @@ class Graph(Generic[T]):
     def __repr__(self) -> str: 
         """Returns string representation of the graph as adjacency dictionary."""
         return f"Graph({self._adjacency})"
-
-    
