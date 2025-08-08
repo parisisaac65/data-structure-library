@@ -6,7 +6,7 @@ class Graph(Generic[T]):
     """
     Graph[T]: A type-annotated, generic graph implementation using an adjacency list. 
 
-    This is an undirected graph, meaning edges connect nodes in both directions(if A is connected to B, then B is connected to A).
+    This is an undirected graph, meaning edges connect nodes in both directions (if A is connected to B, then B is connected to A).
 
     Nodes can be of any type (e.g., integers, strings, tuples), as long as they can be used as dictionary keys.
     Edges are unweighted by default, but the structure is easily extensible to support weights. 
@@ -28,6 +28,7 @@ class Graph(Generic[T]):
 
 
     **Design Decisions:**
+
     - Uses an adjacency list for efficient storage and traversal. 
     - Generic and type-annotated for type safety and static analysis.
     - Undirected by default, but can be adapted for directed graphs.
