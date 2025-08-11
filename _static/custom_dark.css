@@ -1,0 +1,19 @@
+/* Fix for method and function signatures in Sphinx dark mode */
+@media (prefers-color-scheme: dark) {
+  /* Function/class signatures and parameter names */
+  .sig, .sig-name, .sig-paren, .sig-param, .descname, .descclassname, 
+  .objtype, code, .pre, .highlight pre, .highlight .n, .highlight .nf {
+    color: #e6e6e6 !important;
+    background: transparent !important;
+  }
+}
+
+/* Improve visibility in light mode */
+@media (prefers-color-scheme: light) {
+  /* Function/class signatures and parameter names */
+  .sig, .sig-name, .sig-paren, .sig-param, .descname, .descclassname, 
+  .objtype, code, .pre, .highlight pre, .highlight .n, .highlight .nf {
+    /* color: #202020 !important; /* Dark text for light background */
+    background: transparent !important; 
+  }
+}

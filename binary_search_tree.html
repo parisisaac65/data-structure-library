@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binary Search Tree &mdash; python-datastructures 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Heap" href="heap.html" />
+    <link rel="prev" title="Linked List" href="linked_list.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            python-datastructures
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Data Structures</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="hash_table.html">Hash Table</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stack.html">Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="queue.html">Queue</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linked_list.html">Linked List</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Binary Search Tree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#binary_search_tree.BinarySearchTree"><code class="docutils literal notranslate"><span class="pre">BinarySearchTree</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.BinarySearchTree.in_order"><code class="docutils literal notranslate"><span class="pre">BinarySearchTree.in_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.BinarySearchTree.insert"><code class="docutils literal notranslate"><span class="pre">BinarySearchTree.insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.BinarySearchTree.post_order"><code class="docutils literal notranslate"><span class="pre">BinarySearchTree.post_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.BinarySearchTree.pre_order"><code class="docutils literal notranslate"><span class="pre">BinarySearchTree.pre_order()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.BinarySearchTree.remove"><code class="docutils literal notranslate"><span class="pre">BinarySearchTree.remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.BinarySearchTree.search"><code class="docutils literal notranslate"><span class="pre">BinarySearchTree.search()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#binary_search_tree.TreeNode"><code class="docutils literal notranslate"><span class="pre">TreeNode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.TreeNode.data"><code class="docutils literal notranslate"><span class="pre">TreeNode.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.TreeNode.left"><code class="docutils literal notranslate"><span class="pre">TreeNode.left</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#binary_search_tree.TreeNode.right"><code class="docutils literal notranslate"><span class="pre">TreeNode.right</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heap.html">Heap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="graph.html">Graph</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">python-datastructures</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Binary Search Tree</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/binary_search_tree.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-binary_search_tree">
+<span id="binary-search-tree"></span><h1>Binary Search Tree<a class="headerlink" href="#module-binary_search_tree" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="binary_search_tree.BinarySearchTree">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">binary_search_tree.</span></span><span class="sig-name descname"><span class="pre">BinarySearchTree</span></span><a class="headerlink" href="#binary_search_tree.BinarySearchTree" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>BinarySearchTree[T]: A type-annotated, generic binary search tree implementation.</p>
+<p>This Binary Search Tree (BST) maintains the property that for any node, all values in the left subtree are less than the node’s values and all values in the right subtree are greater.</p>
+<p><strong>Usage:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bst</span> <span class="o">=</span> <span class="n">BinarySearchTree</span><span class="p">[</span><span class="nb">int</span><span class="p">]()</span>
+<span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">bst</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">70</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="mi">50</span> <span class="ow">in</span> <span class="n">bst</span><span class="p">)</span>                <span class="c1"># True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">in_order</span><span class="p">()))</span>     <span class="c1"># [30, 50, 70]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>           <span class="c1"># True</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">bst</span><span class="o">.</span><span class="n">in_order</span><span class="p">()))</span>     <span class="c1"># [50, 70]</span>
+</pre></div>
+</div>
+<p><strong>Design Decisions:</strong></p>
+<ul class="simple">
+<li><p>Generic and type-annotated for type safety and static analysis.</p></li>
+<li><p>Supports insert, search, remove, and traversal operations.</p></li>
+<li><p>Iteration methods for in-order, pre-order, and post-order traversal.</p></li>
+<li><p>Raises no exceptions for removing/searching missing values; returns bool or None.</p></li>
+</ul>
+<p><strong>Time Complexity (average):</strong></p>
+<ul class="simple">
+<li><p>insert, search, remove: O(log n)</p></li>
+<li><p>traversal: O(n)</p></li>
+</ul>
+<p><strong>Space Complexity:</strong></p>
+<ul class="simple">
+<li><p>O(n), where n is the number of nodes</p></li>
+</ul>
+<dl class="py method">
+<dt class="sig sig-object py" id="binary_search_tree.BinarySearchTree.in_order">
+<span class="sig-name descname"><span class="pre">in_order</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#binary_search_tree.BinarySearchTree.in_order" title="Link to this definition"></a></dt>
+<dd><p>Traverses the BST in in-order (left, root, right).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Iterator[T]</em> – Values in sorted order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">T</span></code>)]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binary_search_tree.BinarySearchTree.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binary_search_tree.BinarySearchTree.insert" title="Link to this definition"></a></dt>
+<dd><p>Inserts a value into the BST.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<em>T</em>) – The value to insert.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binary_search_tree.BinarySearchTree.post_order">
+<span class="sig-name descname"><span class="pre">post_order</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#binary_search_tree.BinarySearchTree.post_order" title="Link to this definition"></a></dt>
+<dd><p>Traverses the BST in post-order (left, right, root).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Iterator[T]</em> – Values in post-order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">T</span></code>)]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binary_search_tree.BinarySearchTree.pre_order">
+<span class="sig-name descname"><span class="pre">pre_order</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#binary_search_tree.BinarySearchTree.pre_order" title="Link to this definition"></a></dt>
+<dd><p>Traverses the BST in pre-order (root, left, right).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields<span class="colon">:</span></dt>
+<dd class="field-odd"><p><em>Iterator[T]</em> – Values in pre-order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code>(<code class="docutils literal notranslate"><span class="pre">T</span></code>)]</span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binary_search_tree.BinarySearchTree.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binary_search_tree.BinarySearchTree.remove" title="Link to this definition"></a></dt>
+<dd><p>Removes a value from the BST.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>T</em>) – The value to remove.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the value existed and was removed, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="binary_search_tree.BinarySearchTree.search">
+<span class="sig-name descname"><span class="pre">search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binary_search_tree.BinarySearchTree.search" title="Link to this definition"></a></dt>
+<dd><p>Searches for a value in the BST.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<em>T</em>) – The value to search for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if found, False otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="binary_search_tree.TreeNode">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">binary_search_tree.</span></span><span class="sig-name descname"><span class="pre">TreeNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#binary_search_tree.TreeNode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Generic</span></code>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">T</span></code>]</p>
+<p>TreeNode[T]: Represents a node in the binary search tree.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="binary_search_tree.TreeNode.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#binary_search_tree.TreeNode.data" title="Link to this definition"></a></dt>
+<dd><p>The value contained in the node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>T</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="binary_search_tree.TreeNode.left">
+<span class="sig-name descname"><span class="pre">left</span></span><a class="headerlink" href="#binary_search_tree.TreeNode.left" title="Link to this definition"></a></dt>
+<dd><p>Left child node (values less than this node).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#binary_search_tree.TreeNode" title="binary_search_tree.TreeNode">TreeNode</a>[T]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="binary_search_tree.TreeNode.right">
+<span class="sig-name descname"><span class="pre">right</span></span><a class="headerlink" href="#binary_search_tree.TreeNode.right" title="Link to this definition"></a></dt>
+<dd><p>Right child node (values greater than this node).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Optional[<a class="reference internal" href="#binary_search_tree.TreeNode" title="binary_search_tree.TreeNode">TreeNode</a>[T]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="linked_list.html" class="btn btn-neutral float-left" title="Linked List" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="heap.html" class="btn btn-neutral float-right" title="Heap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Paris Isaac.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
