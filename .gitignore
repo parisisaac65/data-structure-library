@@ -1,7 +1,0 @@
-docs/_build
-__pycache__/
-.pytest_cache/
-.venv/
-*.pyc 
-*.pyo
-*.pyd 
